@@ -1,3 +1,55 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>ngx-facebook</h1>
+
+      <p>
+        Wrapper for the official Facebook JavaScript SDK. It makes it easier to use Facebook SDK with Angular 2+ by providing components,
+        providers and types.
+        <a href="https://www.npmjs.com/package/ngx-facebook">ngx-facebook</a>
+      </p>
+
+      <ul>
+        <li>npm i --save ngx-facebook</li>
+        <li>Add the Facebook JavaScript SDK to index.html</li>
+        <li>Initialise facebook service in constructor</li>
+      </ul>
+
+      <h1>Facebook Data</h1>
+
+      <div *ngIf="!loggedIn">
+        <button (click)="login()" class="btn btn-primary">Login with Facebook</button>
+      </div>
+
+      <div *ngIf="loggedIn">
+        <p *ngIf="name !=''">{{name}}</p>
+        <p *ngIf="email != ''">{{email}}</p>
+        <img *ngIf="imgUrl !=''" [src]="imgUrl">
+        <p *ngIf="accessToken !=''">Access Token: {{accessToken}}</p>
+      </div>
+
+      <div *ngIf="showMore">
+        <div>
+          <fb-like href="https://free.vote"></fb-like>
+        </div>
+        <div>
+          <fb-video href="https://www.facebook.com/facebook/videos/10153231379946729/"></fb-video>
+        </div>
+      </div>
+
+      <div *ngIf="loggedIn">
+        <button (click)="logout()" class="btn btn-primary">Logout</button>
+      </div>
+
+      <div>
+        <h1>Facebook button</h1>
+        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true"
+          data-use-continue-as="true"></div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
